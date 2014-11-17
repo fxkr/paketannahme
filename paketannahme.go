@@ -310,5 +310,8 @@ func main() {
 
 	http.HandleFunc("/robots.txt", app.handleRobots)
 	http.HandleFunc("/", NewRateLimit(*delay, *burst).Limit(ProtectMaybe(app.handleIndex)))
-	http.ListenAndServe(string(*addr)+":"+strconv.Itoa(*port), nil)
+	err := http.ListenAndServe(string(*addr)+":"+strconv.Itoa(*port), nil)
+	if err != nil {
+		panic(err)
+	}
 }
