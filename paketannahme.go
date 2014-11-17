@@ -19,6 +19,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/rakyll/globalconf"
 )
 
 // App contains all settings needed by our http.HandlerFuncs.
@@ -267,7 +269,18 @@ func main() {
 	var username = flag.String("user", "", "username for HTTP authentication (dangerous!)")
 	var password = flag.String("password", "", "password for HTTP authentication (dangerous!)")
 	var maxByte = flag.Int("size-limit", 1024, "maximum file size, in kB")
+	var config = flag.String("config", "", "config file path")
 	flag.Parse()
+
+	if *config != "" {
+		conf, err := globalconf.NewWithOptions(&globalconf.Options{
+			Filename: *config,
+		})
+		if err != nil {
+			panic(err)
+		}
+		conf.ParseAll()
+	}
 
 	var url string
 	if *urlPtr != "" {
