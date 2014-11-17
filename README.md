@@ -2,13 +2,13 @@
 
 paketannahme stores files uploaded via HTTP on disk.
 
-It's simple enough that it can be used with curl.</br>
-It doesn't serve the uploaded files back - it's one-way.</br>
-It supports HTTP authentication, size and rate limiting.</br>
-There are no run-time dependencies.</br>
+It's simple enough that it can be used with curl.  
+It doesn't serve the uploaded files back - it's one-way.  
+It supports HTTP authentication, size and rate limiting.  
+There are no run-time dependencies.  
 
-Author: Felix Kaiser (felix.kaiser@fxkr.net)</br>
-License: MIT (see LICENSE)
+Author: Felix Kaiser (felix.kaiser@fxkr.net)  
+License: MIT (see LICENSE)  
 
 
 ## Quickstart
